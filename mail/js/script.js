@@ -9,21 +9,19 @@ console.log('email utente: ', emailUtente);
 var email = ["pinco@gmail.com", "tizio@live.com", "esposito@live.com", "caio@live.com", "sempronio@gmail.com"]
 console.log(email);
 
-
 // controlliamo se l'email sia nella lista "degli invitati"
-// Stampiamo il messaggio in base al risultato ottenuto
-if( emailUtente == email[1] ) {
-    document.getElementById('email').innerHTML = emailUtente + ': Sei il Benvenuto!';
-} else if( emailUtente == email[2] ){
-    document.getElementById('email').innerHTML = emailUtente + ': Sei il Benvenuto!';
-} else if( emailUtente == email[3] ){
-    document.getElementById('email').innerHTML = emailUtente + ': Sei il Benvenuto!';
-} else if( emailUtente == email[4] ){
-    document.getElementById('email').innerHTML = emailUtente + ': Sei il Benvenuto!';
-} else if( emailUtente == email[5] ){
-    document.getElementById('email').innerHTML = emailUtente + ': Sei il Benvenuto!';
-} else {
-    alert(emailUtente + ": Non sei il Benvenuto!");
+var inLista = false;
+
+for( var i = 0 ; i < email.length; i++) {
+
+    if( email[i] === emailUtente) {
+        inLista = true;
+    }
 }
 
-
+// Stampiamo il messaggio in base al risultato ottenuto
+if(inLista) {
+    document.getElementById('email').innerHTML = emailUtente + ': Benvenuto!';
+} else {
+    document.getElementById('email').innerHTML = emailUtente + ': Non sei il benvenuto!';
+}
